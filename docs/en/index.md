@@ -4,6 +4,9 @@ hero:
   name: Device Exercise II
   text: Interactive Sound Art with micro:bit and Pure Data
   tagline: Combine sensor devices with audio synthesis to create your own original sound art
+  image:
+    src: /favicon.png
+    alt: Device Exercise II Logo
   actions:
     - theme: brand
       text: Start Learning

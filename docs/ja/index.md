@@ -4,6 +4,9 @@ hero:
   name: デバイス演習 II
   text: "micro:bit と Pure Data による\nインタラクティブサウンドアート"
   tagline: センサデバイスと音響合成を組み合わせて、オリジナルのサウンドアート作品を制作しよう
+  image:
+    src: /favicon.png
+    alt: デバイス演習 II ロゴ
   actions:
     - theme: brand
       text: 授業を始める
