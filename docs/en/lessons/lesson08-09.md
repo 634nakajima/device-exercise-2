@@ -25,30 +25,60 @@ Put everything you have learned to work and begin creating your original interac
 
 ### What Is a Motif?
 
-A **motif** is the **theme or subject** of your piece. It is the first step in deciding "what you want to express." In sound art, you convey the world of your motif to the audience through sound.
+A **motif** is the **theme or subject** of your piece. It is the first step in deciding "what you want to express."
+
+In interactive sound art, a motif has **two key aspects**:
+
+#### Sound Motif — What you express through sound
+
+This is the atmosphere or world you want to convey to the audience through sound. Think about what kind of sonic experience you want to deliver: "the sound of rain," "the stillness of the deep sea," "the energy of a festival."
+
+#### Physical Motif — What the audience actually touches
+
+In interactive works, the **physical object that users hold, move, or touch** is an equally important part of the motif. Rather than handing someone a bare micro:bit, embedding it inside a meaningful object dramatically changes the experience.
+
+| Physical Motif | How to Embed | Relationship to Sound |
+|---------------|-------------|----------------------|
+| Flashlight | Place micro:bit inside a flashlight | The direction of light changes cave sounds |
+| Fan (hand fan) | Attach micro:bit to a hand fan | Fanning motion creates wind sounds |
+| Hourglass | Put micro:bit in an hourglass-shaped case | Tilting produces the sound of sand falling |
+| Stuffed animal | Hide micro:bit inside a plush toy | Rocking or petting changes the creature's voice |
+| Instrument-shaped object | Mount micro:bit on a guitar or maraca shape | Shaking or tilting becomes a performance |
+| Box / Container | Place micro:bit in a box with an openable lid | Opening the lid releases sounds from within |
+| Plant model | Embed micro:bit in a potted plant object | Hovering a hand triggers blooming sounds |
+
+::: tip Physical Motifs Transform the Experience
+The same mechanism — "accelerometer changes pitch" — feels completely different when holding a bare micro:bit versus holding a sword-shaped object. **What users hold and touch** shapes the impression of the work just as much as the sound itself.
+
+Use everyday materials (items from a dollar store, cardboard, plastic bottles, etc.) to create a form that matches your concept.
+:::
 
 ### Motif Examples
 
-Use the following categories as inspiration for your own motif.
+Think about combining both aspects:
 
-| Category | Example Motifs | Sound Ideas |
-|----------|---------------|-------------|
-| Natural phenomena | Rain, wind, waves, thunder, earthquake | Noise, low frequencies, trembling |
-| Everyday actions | Walking, tapping, turning, gripping | Rhythm, percussion, continuous tones |
-| Emotions | Joy, fear, silence, excitement | Bright chords, dissonance, stillness |
-| Spaces | Cave, outer space, forest, underwater | Reverb, spaciousness, ambient sound |
-| Abstract concepts | Time, color, temperature, gravity | Gradual change, gradients |
+| Category | Sound Motif | Physical Motif Examples | Experience |
+|----------|-----------|----------------------|------------|
+| Nature | Rain, wind, waves, thunder | Hand fan, umbrella, seashell | Fanning creates wind; tilting an umbrella changes rain sounds |
+| Daily life | Cooking, cleaning, crafting | Ladle, broom, hammer | Swinging a ladle makes pot sounds; strike strength changes the tone |
+| Emotions | Joy, fear, comfort | Music box, box, lantern | Opening a box reveals mysterious sounds; lighting a lantern triggers soothing tones |
+| Spaces | Cave, space, forest, underwater | Flashlight, telescope, bottle | Flashlight direction changes cave sounds |
+| Creatures | Birds, insects, cats, fish | Stuffed animal, egg, feather | Rocking a stuffed animal changes its call |
+| Abstract | Time, color, temperature | Hourglass, kaleidoscope, balloon | Tilting an hourglass produces the sound of time flowing |
 
 ### Guiding Questions
 
 Ask yourself:
 
-1. **"What sounds would be interesting to hear?"** -- Imagine sounds you do not normally encounter
-2. **"What movements do you want to use to produce sound?"** -- Think about how the audience will interact
-3. **"What feeling do you want the audience to have?"** -- Decide what impression you want to convey
+1. **"What sounds would be interesting to hear?"** — Imagine sounds you do not normally encounter
+2. **"What would be interesting to hold?"** — Imagine the physical object users will touch
+3. **"What movements do you want to use to produce sound?"** — Think about how the object is moved
+4. **"What feeling do you want the audience to have?"** — Decide what impression you want to convey
 
 ::: tip Brainstorming Tips
 Start by writing down every idea that comes to mind (brainstorming). Quantity matters more than quality. Come up with at least 10 ideas, then pick the most interesting one.
+
+Try listing "sound motifs" and "physical motifs" separately, then combine them — unexpected pairings often spark the most creative ideas.
 :::
 
 ---
