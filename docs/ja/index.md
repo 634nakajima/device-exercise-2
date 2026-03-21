@@ -12,13 +12,13 @@ hero:
       text: 評価手法を学ぶ
       link: /ja/evaluation/
 features:
-  - icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><path d="M8 12h0"/><circle cx="12" cy="12" r="3"/><path d="M6 8l1.5 1.5"/><path d="M16.5 14.5L18 16"/></svg>'
+  - icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c1-3 3-5 5-5s3 2 5 2 3-4 5-4 3 2 5 5"/><path d="M2 16c1-3 3-5 5-5s3 2 5 2 3-4 5-4 3 2 5 5"/></svg>'
     title: Pure Data
     details: ビジュアルプログラミング言語で音響合成・信号処理を学ぶ
   - icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/><circle cx="15" cy="15" r="1.5" fill="currentColor"/><path d="M9 15h0"/><path d="M15 9h0"/><rect x="7" y="7" width="10" height="10" rx="1" stroke-dasharray="2 2"/></svg>'
     title: micro:bit
     details: センサデバイスでインタラクティブな操作を実現する
-  - icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c0-3 2.5-6 6-7s6 1 6 1 2.5-2 6-1 2.5 6 2.5 6"/><path d="M2 12c0 3 2.5 6 6 7s6-1 6-1 2.5 2 6 1 2.5-6 2.5-6"/><circle cx="8" cy="12" r="0.5" fill="currentColor"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/><circle cx="16" cy="12" r="0.5" fill="currentColor"/></svg>'
+  - icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>'
     title: サウンドアート
     details: 技術と表現を融合させたオリジナル作品を制作する
   - icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 4-6"/></svg>'
