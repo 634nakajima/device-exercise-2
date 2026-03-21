@@ -152,48 +152,46 @@ forever:
 | **Pd-extended** | An extended version bundling many libraries (no longer maintained) |
 | **Plugdata** | A modern UI Pd-compatible environment (also works as a VST plugin) |
 
-We will use **Pd vanilla** in this course.
+We will use **plugdata** in this course.
+
+### About plugdata
+
+**[plugdata](https://plugdata.org/)** is a modern visual programming environment based on Pure Data. It is fully compatible with Pd vanilla while offering a more user-friendly interface.
+
+| Feature | Description |
+|---------|-------------|
+| **Modern UI** | Dark mode support, auto-complete for objects, and drag-and-drop |
+| **Pd compatible** | Opens Pd vanilla patches directly. All Pd operations and objects on this site work in plugdata |
+| **Built-in libraries** | Libraries used in this course (ELSE, cyclone) are pre-installed — no extra setup needed |
+| **VST/AU plugin** | Also works as a plugin inside DAWs (GarageBand, Ableton Live, etc.) |
+| **Cross-platform** | Mac / Windows / Linux |
+
+::: tip Already installed on university PCs
+plugdata is already installed on the university computers. If you want to install it on your own PC, download it from the [plugdata website](https://plugdata.org/).
+:::
+
+::: warning Differences from Pd vanilla
+The operations and object names are the same as Pd vanilla, but keyboard shortcuts and appearance differ slightly. The screenshots on this site show Pd vanilla, but the same operations produce the same results in plugdata.
+:::
 
 ---
 
-## Installing Pure Data
+## Pure Data Basic UI
 
-### Download
+Launch plugdata (or Pd vanilla) and familiarize yourself with the basic layout:
 
-1. Go to [https://puredata.info/downloads/pure-data](https://puredata.info/downloads/pure-data)
-2. Download the version for your operating system
-
-### Mac
-
-1. Open the `.dmg` file
-2. Drag `Pd-0.xx-x.app` into the **Applications** folder
-3. If you see "unidentified developer" on first launch:
-   - Go to **System Settings** → **Privacy & Security** → click "Open Anyway"
-
-### Windows
-
-1. Run the `.exe` installer
-2. Follow the installation wizard
-3. Default settings are fine
-
-### Verifying the Installation
-
-1. Launch Pd
-2. Confirm that the **Pd console** window appears
-3. Go to **File** → **New** to create a new patch (program)
-4. If a patch window appears, you are all set
-
-::: tip Basic UI
-- **Pd console**: Window that shows error messages and logs
 - **Patch window**: Workspace where you create your program (patch)
 - **Object**: Press `Ctrl+1` (Mac: `Cmd+1`) to place a new object
 - **Message**: Press `Ctrl+2` (Mac: `Cmd+2`) to place a message box
-:::
+- **Edit/Run mode toggle**: `Ctrl+E` (Mac: `Cmd+E`)
+
+Create a new patch and try placing some objects and messages. We will start using Pd in earnest in the next lesson.
 
 ---
 
 ## Reference Links
 
+- [plugdata Official Site](https://plugdata.org/)
 - [Pure Data Official Site](https://puredata.info/)
 - [MakeCode: Touch Sensor Drum](https://makecode.microbit.org/96575-21886-94153-68551)
 - [MakeCode: Compass Theremin](https://makecode.microbit.org/02444-39498-61498-52498)
