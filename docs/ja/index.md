@@ -2,7 +2,7 @@
 layout: home
 hero:
   name: デバイス演習 II
-  text: micro:bit と Pure Data によるインタラクティブサウンドアート
+  text: "micro:bit と Pure Data による\nインタラクティブサウンドアート"
   tagline: センサデバイスと音響合成を組み合わせて、オリジナルのサウンドアート作品を制作しよう
   actions:
     - theme: brand
