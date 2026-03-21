@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/device-exercise-2/',
   title: 'デバイス演習 II',
   description: 'micro:bit と Pure Data によるインタラクティブサウンドアート',
 
