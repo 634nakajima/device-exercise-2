@@ -129,7 +129,7 @@ export default defineConfig({
   },
 
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+    ['link', { rel: 'icon', type: 'image/png', href: '/device-exercise-2/favicon.png' }]
   ],
 
   themeConfig: {
