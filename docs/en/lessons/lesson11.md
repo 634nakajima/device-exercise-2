@@ -103,72 +103,58 @@ Add arguments to `[dac~]` to specify which channels to output to.
 
 ## 4-Channel Audio in Pd
 
-### Basic Setup: Sending Different Sounds to Four Speakers
+### Basic Setup: Playing Different Audio Files on Four Speakers
 
-```
-[osc~ 440]     [noise~]       [osc~ 330]     [phasor~ 220]
-    |              |               |               |
-[*~ 0.3]       [*~ 0.1]       [*~ 0.3]       [*~ 0.2]
-    |              |               |               |
-    |              |               |               |
-[         dac~ 1 2 3 4          ]
-```
+Use `[else/play.file~]` to play different audio files from each speaker.
 
-By assigning different sound sources to each speaker, you can create spatial breadth.
+![4ch Audio Playback](/images/pd/39-4ch-playback.png)
 
-### 4-Channel Panning
+**Patch structure:**
 
-**Panning** is the technique of moving sound between speakers. You can use sensor values to dynamically change the position of the sound.
+1. Use four `[else/play.file~]` objects, each loading a different audio file:
+   - `4chsample_L.wav` — Front Left
+   - `4chsample_R.wav` — Front Right
+   - `4chsample_Ls.wav` — Rear Left
+   - `4chsample_Rs.wav` — Rear Right
+2. Set the arguments to `1 1` to enable looping and auto-play
+3. Use `[*~]` on each output for volume control
+4. Connect the four outputs to `[else/out4~]`
 
-#### Left-Right Panning (Between Channels 1 and 2)
-
-```
-[osc~ 440]
-    |
-    |    [sensor value 0--1]
-    |        |
-    |    [sqrt~]  ← Right channel volume
-    |        |
-    |    [1 - ] → [sqrt~]  ← Left channel volume
-    |    |           |
-[*~]            [*~]
-    |               |
-[dac~ 1]      [dac~ 2]
-```
-
-::: tip Equal-Power Panning
-Simply changing volume linearly makes the center sound quieter. Using `[sqrt~]` (square root) ensures equal perceived loudness at all positions. This is called **equal-power panning**.
+::: tip Preparing Audio Files
+Place the 4ch audio files in the same folder as the patch. Playing different ambient sounds (wind, water, birdsong, etc.) from separate speakers creates a rich spatial soundscape.
 :::
+
+### 4-Channel Panning — `else/pan4~`
+
+`[else/pan4~]` lets you position a sound in 2D space and distribute it across four speakers.
+
+![4ch Panning](/images/pd/40-4ch-panning.png)
+
+**Patch structure:**
+
+1. Feed a sound source (e.g., `[noise~]`) into `[else/pan4~]`
+2. Use `[else/slider2d]` to control the X/Y position (-1 to 1)
+3. Use `[unpack f f]` to split the X and Y values and send them to `[else/pan4~]`'s 2nd and 3rd inlets
+4. Connect the four outlets of `[else/pan4~]` to `[else/out4~]`
+
+Drag the `[else/slider2d]` with your mouse to change the sound position in real time. You can also feed micro:bit accelerometer X/Y values to control the position by tilting.
 
 ### Rotating Sound
 
-You can also make sound rotate around the four speakers.
+You can make sound automatically rotate around the four speakers.
 
-**Basic approach:**
+![Sound Rotation](/images/pd/41-rotation.png)
 
-1. Use `[phasor~]` to create a low-frequency signal cycling from 0 to 1
-2. Convert that value to an angle (0--360 degrees)
-3. Use `sin` and `cos` to calculate the volume for each speaker
+**Patch structure:**
 
-```
-[phasor~ 0.25]     ← One full rotation every 4 seconds
-       |
-[* 6.28318]        ← Multiply by 2pi to convert to radians
-       |
-   +---+---+
-   |       |
-[cos~]  [sin~]     ← Volume for each channel
-```
+1. Prepare a sound source such as `[noise~]`
+2. Feed it into `[else/rotate~ 4]` — this object automatically rotates sound across 4 channels
+3. Control the rotation speed with `[else/float2sig~ 100]` or similar
+4. Use a slider (-0.5 to 0.5) to control speed and direction — positive values for clockwise, negative for counter-clockwise
+5. Connect the four outlets to `[else/out4~]`
 
-::: details Details on 4-Channel Rotation
-To rotate sound across four speakers, control each speaker's volume with phase-shifted sine waves.
-
-- **Ch.1 (Front Left)**: `cos(angle)`
-- **Ch.2 (Front Right)**: `sin(angle)`
-- **Ch.3 (Rear Right)**: `cos(angle + pi)` (= `-cos(angle)`)
-- **Ch.4 (Rear Left)**: `sin(angle + pi)` (= `-sin(angle)`)
-
-Rotation speed is determined by the frequency of `[phasor~]`. 0.25 Hz = one rotation every 4 seconds; 0.1 Hz = every 10 seconds.
+::: tip Adjusting Rotation Speed
+The argument to `[else/float2sig~]` (e.g., 100) controls the smoothness of the signal conversion. Rotation speed is determined by the slider value. 0 stops the rotation; larger values produce faster rotation. Adjust to match the tempo of your piece.
 :::
 
 ---
