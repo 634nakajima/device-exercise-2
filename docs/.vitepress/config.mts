@@ -133,6 +133,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
+    logo: '/favicon.png',
     search: {
       provider: 'local'
     },
