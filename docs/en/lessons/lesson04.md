@@ -382,7 +382,7 @@ Convert the output of Advanced 1 to a bang using `> 0` → `sel 1`, then route b
 Add **smoothing** to the patch from Exercise 2 so that the frequency changes gradually when switching (the pitch gradually rises or falls).
 
 ::: details Hint
-From each branch of the button routing, send a message containing the target frequency and a ramp time (e.g., `500 200`) to a `line` object. Connect `line`'s output to the frequency inlet of `osc~` so the pitch glides to the new value over the specified time.
+Process the frequency value through `sig~` → `else/smooth~` → `else/s2f~` before connecting to `osc~`. A larger argument to `else/smooth~` gives a slower, smoother transition.
 :::
 
 ### Advanced 4
