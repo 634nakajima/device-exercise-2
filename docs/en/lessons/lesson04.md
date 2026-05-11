@@ -314,7 +314,7 @@ In MakeCode, use "on button A pressed" → `serial write value "buttonA" = 1`, a
 Create a patch that plays a sine wave continuously at **500 Hz** when button A is pressed and at **1000 Hz** when button B is pressed.
 
 ::: details Hint
-Extend the patch from Exercise 1. Convert each button value (0/1) to a signal using `sig~` and multiply it by the corresponding oscillator output with `*~`. Use `osc~ 500` for button A and `osc~ 1000` for button B, then mix with `+~` and send to `output~`.
+Connect `osc.route /buttonA /buttonB` → `sel 1` to output a bang when each button is pressed (value = 1). Send the corresponding frequency as a message to `osc~`. Combine with a toggle to hold the ON/OFF state.
 :::
 
 ### Exercise 3
