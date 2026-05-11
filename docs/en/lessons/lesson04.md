@@ -61,6 +61,34 @@ off  on
 
 ---
 
+## Data Processing Practice Exercises
+
+### Exercise 1
+
+Create a patch that outputs a bang when the number box value is **50 or above**.
+
+::: details Hint
+Combine `>= 50` and `sel 1`. The `>= 50` object outputs 1 when the condition is true and 0 when false.
+:::
+
+### Exercise 2
+
+Create a patch that plays three decay sounds (220 Hz, 440 Hz, and 880 Hz for 1 second each) depending on the value of a **V. Radio** (a vertically arranged radio button that outputs 0 to (number of switches − 1) when clicked; the number of switches can be changed from Options on the right side of the screen).
+
+::: details Hint
+Connect `V. Radio` → `sel 0 1 2` and connect each outlet to messages that trigger `vline~` envelopes for the three sounds. Refer to the decay sound patch from Lesson 3 Exercise 6.
+:::
+
+### Exercise 3
+
+Modify the patch from Exercise 2 so that the decay sounds play only **when the V. Radio value changes**.
+
+::: details Hint
+Connect `V. Radio` → `change` → `sel 0 1 2`.
+:::
+
+---
+
 ## Serial Communication with micro:bit
 
 ### Sending Sensor Data from MakeCode
@@ -243,28 +271,124 @@ Different sensors output different ranges. It is good practice to **normalize** 
 
 ---
 
-## Practice Exercises
+## Data Processing Practice Exercises
 
-### Exercise 1: Light-Controlled Sine Wave
+### Exercise 1
 
-Receive the micro:bit light sensor value in Pd and use it to control the frequency of a sine wave (mapping 0--255 to 200--2000 Hz). Apply smoothing so the pitch changes gradually.
+Create a patch that outputs a **bang** when the number box value is **50 or above**.
 
 ::: details Hint
-Use `cyclone/scale 0 255 200 2000` to map the value, then `else/lowpass 10` to smooth it, and connect to `osc~`.
+Combine a `>= 50` object with `sel 1`. The `>= 50` object outputs 1 when the condition is true and 0 when false.
 :::
 
-### Exercise 2: Acceleration Threshold Trigger
+### Exercise 2
 
-Receive the accelerometer's strength value and play a drum sample only when the value exceeds a threshold (e.g., 600). Use `moses` for the threshold detection.
+Using a **V. Radio** (a vertical row of radio buttons; clicking outputs the selected index starting from 0; the number of buttons can be changed from Options on the right side of the screen), create a patch that plays three different decay tones (220 Hz, 440 Hz, and 880 Hz, each lasting 1 second) depending on which button is selected.
 
 ::: details Hint
-Connect the acceleration strength value to `moses 600`. The right outlet triggers a bang that plays a sound with `else/play.file~`.
+Connect `V. Radio` → `sel 0 1 2`, then connect each outlet of `sel 0 1 2` to a message that triggers a `vline~`-based decay envelope for the corresponding tone. Refer to the decay sound patch from Lesson 3 Exercise 6.
 :::
 
-### Exercise 3: Multi-Sensor Instrument
+### Exercise 3
 
-Create a patch that uses at least two different sensor values simultaneously: one for pitch and one for volume (or filter cutoff). Normalize, clip, and smooth all values.
+Modify the patch from Exercise 2 so that the three decay tones only play **when the V. Radio value changes**.
 
 ::: details Hint
-For example, use light level for pitch (mapped to frequency) and acceleration Y for volume (mapped to 0--1). Use `clip 0 1` on the volume value and `else/lowpass` on both values.
+Connect `V. Radio` → `change` → `sel 0 1 2`.
+:::
+
+---
+
+## micro:bit Integration Practice Exercises
+
+### Exercise 1
+
+Create a MakeCode program that sends 0/1 (0: not pressed, 1: pressed) to `/buttonA` and `/buttonB` addresses when buttons A and B are pressed, and create a Pd patch to receive them.
+
+::: details Hint
+In MakeCode, use "on button A pressed" → `serial write value "buttonA" = 1`, and "on button A released" → `serial write value "buttonA" = 0`. In Pd, connect `else/osc.receive 8000` → `else/osc.route /buttonA /buttonB` → number boxes.
+:::
+
+### Exercise 2
+
+Create a patch that plays a sine wave continuously at **500 Hz** when button A is pressed and at **1000 Hz** when button B is pressed.
+
+::: details Hint
+Extend the patch from Exercise 1. Convert each button value (0/1) to a signal using `sig~` and multiply it by the corresponding oscillator output with `*~`. Use `osc~ 500` for button A and `osc~ 1000` for button B, then mix with `+~` and send to `output~`.
+:::
+
+### Exercise 3
+
+Using **arithmetic operations**, display a value that converts the light sensor range to approximately **0–100**.
+
+::: details Hint
+The light sensor outputs 0–255. Connect `/ 255` → `* 100` in sequence to convert to 0–100 (you can also use `expr $f1 / 255 * 100`).
+:::
+
+### Exercise 4
+
+Using **`scale` and `clip`**, display a value that converts the light sensor range to exactly **0–100**.
+
+::: details Hint
+Use `cyclone/scale 0 255 0 100` for mapping, then `clip 0 100` to ensure the range is strictly limited.
+:::
+
+### Exercise 5
+
+Appropriately convert the light sensor value and create a **theremin** whose frequency changes.
+
+::: details Hint
+Map the light sensor value using `cyclone/scale` to a suitable frequency range (e.g., 200–2000 Hz) and connect to the frequency inlet of `osc~`.
+:::
+
+### Exercise 6
+
+Convert the light sensor value so that it shows **a value greater than 0** when a smartphone light is shone on the micro:bit, and **always 0** when no light is shone (mapping no-light brightness to 0, lit brightness to 100).
+
+::: details Hint
+First check the ambient brightness (value with no light). Subtract that value using `-`, apply `clip 0 255` to set the lower limit to 0, then use `cyclone/scale` to convert to 0–100.
+:::
+
+### Exercise 7
+
+Using the function from Exercise 6, create a feature that plays a **1000 Hz sine wave with a 1-second decay** when a smartphone light is shone on the micro:bit.
+
+::: details Hint
+Convert the output of Exercise 6 to a bang using `> 0` → `sel 1`, then route bang → `vline~` envelope (e.g., `1 0, 0 1000 0`) → `*~` → `output~`. Refer to the decay sound patch from Lesson 3 Exercise 6.
+:::
+
+---
+
+## Advanced Practice Exercises
+
+### Advanced 1
+
+Convert the sound sensor value so that it shows **a value greater than 0** when clapping near the micro:bit, and **always 0** when not clapping.
+
+::: details Hint
+Check the ambient sound sensor value (background noise). Subtract that value using `-`, clip below-zero results to 0 with `clip 0 255`, then map to an appropriate range using `cyclone/scale`.
+:::
+
+### Advanced 2
+
+Using the patch from Advanced Exercise 1, create a feature that plays a **1000 Hz sine wave with a 1-second decay** when clapping.
+
+::: details Hint
+Convert the output of Advanced 1 to a bang using `> 0` → `sel 1`, then route bang → `vline~` envelope (e.g., `1 0, 0 1000 0`) → `*~` → `output~`.
+:::
+
+### Advanced 3
+
+Add **smoothing** to the patch from Exercise 2 so that the frequency changes gradually when switching (the pitch gradually rises or falls).
+
+::: details Hint
+From each branch of the button routing, send a message containing the target frequency and a ramp time (e.g., `500 200`) to a `line` object. Connect `line`'s output to the frequency inlet of `osc~` so the pitch glides to the new value over the specified time.
+:::
+
+### Advanced 4
+
+With white noise being generated, vary the **low-pass filter cutoff frequency** according to the sound sensor level. Add appropriate mapping and smoothing so that the sound changes naturally.
+
+::: details Hint
+Connect `noise~` → `lop~` → `output~`. Map the sound sensor value using `cyclone/scale` to a suitable frequency range (e.g., 200–5000 Hz), smooth it with `sig~` → `else/smooth~` → `else/s2f~`, and connect to the right inlet of `lop~`.
 :::

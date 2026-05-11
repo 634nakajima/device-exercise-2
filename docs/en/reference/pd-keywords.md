@@ -152,6 +152,7 @@ Signal-related objects will not work unless DSP is turned on. Enable it via the 
 | toggle | 0/1 switch | Click to toggle |
 | Number box | Numeric display/input | Drag to change value |
 | Horizontal slider | Continuous value input | Right-click → Properties to set upper/lower limits |
+| V. Radio | Vertical radio button group. Clicking outputs the selected index (0 to number of buttons − 1). The number of buttons can be changed from Options on the right side of the screen | Place via `Put > New > V. Radio`. Change the number of buttons from Options while selected |
 
 ## Miscellaneous
 
