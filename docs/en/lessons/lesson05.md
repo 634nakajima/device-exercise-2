@@ -108,9 +108,29 @@ With `else/xfade~`, a value from 0 to 1 controls the mix ratio between two sourc
 - **0.5**: Both inputs are mixed equally
 - **1**: Only input 2 is heard
 
-### Patch Example
+### Patch Example (xfade~)
 
-![Crossfade](/images/pd/27-crossfade.png)
+A patch that crossfades between two sources (`drum.wav` and `drum2.wav`) with a slider. Sending a value from 0 to 1 into the right inlet of `else/xfade~` controls the mix between the two sources.
+
+![xfade~](/images/pd/27-xfade.png)
+
+### Switching Between Multiple Sources (xselect~)
+
+To switch between three or more sources, use `else/xselect~`. Its arguments specify the **number of inputs** and the **fade time (in milliseconds)**. Send an integer (0 to N−1) to its right inlet to choose which source to play; the patch smoothly fades from the previous source to the new one over the specified fade time.
+
+Example: `else/xselect~ 3 1000` — switches among 3 inputs with a 1000 ms crossfade.
+
+- **0**: Input 1 is heard
+- **1**: Input 2 is heard
+- **2**: Input 3 is heard
+
+While `else/xfade~` controls the mix between two sources as a continuous value (0–1), `else/xselect~` uses an integer to choose *which* source plays.
+
+### Patch Example (xselect~)
+
+A patch that switches between three sources using integers (0, 1, 2). Sending a radio-button or number value to the right inlet of `else/xselect~` triggers a smooth crossfade to the chosen source.
+
+![xselect~](/images/pd/27-xselect.png)
 
 ---
 
