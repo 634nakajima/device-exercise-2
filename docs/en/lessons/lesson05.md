@@ -1,4 +1,4 @@
-# Lesson 5: Signal Processing & Audio File Handling
+# Lesson 5: Audio File Handling
 
 ## Goals for This Lesson
 
