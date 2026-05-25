@@ -26,7 +26,7 @@ export default defineConfig({
                 { text: '第2回 シンプルな電子楽器', link: '/ja/lessons/lesson02' },
                 { text: '第3回 Pd基礎', link: '/ja/lessons/lesson03' },
                 { text: '第4回 データ処理・micro:bit連携', link: '/ja/lessons/lesson04' },
-                { text: '第5回 信号処理・音源ファイル処理', link: '/ja/lessons/lesson05' },
+                { text: '第5回 音源ファイルの処理', link: '/ja/lessons/lesson05' },
                 { text: '第6回 自動演奏', link: '/ja/lessons/lesson06' },
                 { text: '第7回 Pd+micro:bitで電子楽器', link: '/ja/lessons/lesson07' }
               ]
@@ -87,7 +87,7 @@ export default defineConfig({
                 { text: 'Lesson 2: Simple Instruments', link: '/en/lessons/lesson02' },
                 { text: 'Lesson 3: Pd Basics', link: '/en/lessons/lesson03' },
                 { text: 'Lesson 4: Data Processing & micro:bit', link: '/en/lessons/lesson04' },
-                { text: 'Lesson 5: Signal Processing & Audio Files', link: '/en/lessons/lesson05' },
+                { text: 'Lesson 5: Audio File Handling', link: '/en/lessons/lesson05' },
                 { text: 'Lesson 6: Auto-Play', link: '/en/lessons/lesson06' },
                 { text: 'Lesson 7: Instruments with Pd + micro:bit', link: '/en/lessons/lesson07' }
               ]
