@@ -102,10 +102,10 @@ To smoothly switch between audio sources or gradually change volume, use fade-re
 
 A crossfade gradually lowers the volume of one source while raising the volume of another, creating a smooth transition.
 
-With `else/xfade~`, a value from 0 to 1 controls the mix ratio between two sources.
+With `else/xfade~`, a value from -1 to 1 controls the mix ratio between two sources.
 
-- **0**: Only input 1 is heard
-- **0.5**: Both inputs are mixed equally
+- **-1**: Only input 1 is heard
+- **0**: Both inputs are mixed equally
 - **1**: Only input 2 is heard
 
 ### Patch Example (xfade~)
