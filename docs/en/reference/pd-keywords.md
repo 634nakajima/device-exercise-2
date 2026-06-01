@@ -20,7 +20,23 @@ A reference for objects and commands used in Pd patches.
 | Place a horizontal slider | `Shift + Cmd (Ctrl) + J` |
 | Place an array | `Cmd + Shift + A` |
 | Delete an object | Select → `Backspace` |
-| Object help | Right-click → Help |
+| Object help (usage) | Right-click an object → Help |
+| List of all objects | Right-click empty canvas → Help |
+
+## Basic Concepts
+
+| Term | Meaning |
+|------|---------|
+| Patch | A Pd program file |
+| Inlet | The data input on the top of an object |
+| Outlet | The data output on the bottom of an object. Connecting an outlet to an inlet lets data flow between objects |
+| Value | A number or string. Drawn as a **thin line** between inlet and outlet |
+| Signal | Continuous data such as audio signals. Drawn as a **thick line** between inlet and outlet |
+| Message | Pre-written strings or numbers. Including `$1` in a message replaces it with the value received from the inlet |
+| Number box | A GUI that displays and inputs numbers in real time |
+| Symbol box | A GUI that displays a string |
+| Array | A place to store data such as audio |
+| DSP | Real-time signal processing. Starts when you enable the checkbox at the top-right of the console, or raise the audio output volume |
 
 ## Sound Generation
 
@@ -67,7 +83,7 @@ A reference for objects and commands used in Pd patches.
 |--------|-------------|-------|
 | `s` (send) | Send a value | `[s destination_name]` |
 | `r` (receive) | Receive a value | `[r destination_name]` |
-| `sel` | Route by matching values | `[sel value1 value2 ...]` |
+| `sel` | Route by matching values | `[sel value1 value2 ...]` (the rightmost outlet passes through values that don't match) |
 | `route` | Route by first element | `[route address1 address2]` |
 | `change` | Output only when the value changes | `[change]` |
 | `t` (trigger) | Send values right-to-left | `[t f b]` (f: float, b: bang, a: symbol) |
@@ -116,21 +132,22 @@ Signal-related objects will not work unless DSP is turned on. Enable it via the 
 
 | Object | Description | Usage |
 |--------|-------------|-------|
-| `else/play.file~` | Audio file playback | `[else/play.file~ filename loop(0/1) autoplay(0/1)]` |
-| `else/stretch.shift~` | Pitch shift / time stretch | Pitch: 0=original, 1200=1 octave; Tempo: 100=original |
-| `else/xselect~` | Crossfade selection | `[else/xselect~ num_channels fade_time(ms)]` |
+| `else/play.file~` | Audio file playback | `[else/play.file~ filename loop(0/1) autoplay(0/1)]`. Control with `start`/`stop`/`loop 1` messages |
+| `else/stretch.shift~` | Pitch shift / time stretch | `[else/stretch.shift~ buffer_size init_pitch init_tempo]`. Pitch: 0=original, 1200=1 octave (3rd inlet); Tempo: 100=original (%) (4th inlet) |
+| `else/xselect~` | Crossfade selection | `[else/xselect~ num_channels fade_time(ms)]`. Input a channel number (0, 1, 2…) to the left inlet to switch |
 | `else/xfade~` | Crossfade | ELSE library |
-| `else/rec.file~` | Record to file | `[else/rec.file~ filename]` |
+| `else/rec.file~` | Record to file | `[else/rec.file~ filename]`. The file is saved in the same folder as the patch |
 | `soundfiler` | Load WAV data into an array | `read filename array_name` |
 | `tabplay~` | Play audio from an array | `[tabplay~ array_name]` |
+| `.wav` | Uncompressed audio file format | Used for sample sounds, etc. |
 
 ## Automated Playback
 
 | Object | Description | Usage |
 |--------|-------------|-------|
-| `text define` | Define text data | `[text define -k filename]` |
-| `text sequence` | Sequential text output | `auto`: automatic, `bang`: one step, `line 0`: go to start |
-| `else/drum.seq` | Rhythm machine GUI | `[else/drum.seq rows columns]` |
+| `text define` | Define text data | `[text define -k filename]`. Click it in run mode to edit and save the text (`Cmd (Ctrl) + S`) |
+| `text sequence` | Sequential text output (`destination value;`) | `[text sequence name -g]`, `auto`: automatic, `bang`: one step, `line 0`: go to start |
+| `else/drum.seq` | Rhythm machine GUI; plays one step per bang | `[else/drum.seq rows columns]`. Outputs value lists of the form `[row_number on(1)/off(0)]` |
 | `else/tempo` | BPM tempo output | `[else/tempo BPM -mul multiplier]` |
 | `random` | Random integer output | `[random max_value]` |
 
@@ -140,6 +157,10 @@ Signal-related objects will not work unless DSP is turned on. Enable it via the 
 |--------|-------------|-------|
 | `else/osc.receive` | Receive OSC data | `[else/osc.receive port_number]` |
 | `else/osc.route` | Route by OSC address | `[else/osc.route /address1 /address2]` |
+| `netreceive` | Receive data over the network | `[netreceive -u -b port_number]` (`-u`: UDP, `-b`: binary) |
+| `oscparse` | Parse data per the OSC protocol | Parses the output of `netreceive`; outputs an `[address value]` list |
+| `list trim` | Strip the leading selector from a list | Makes the `[address value]` from `oscparse` usable by `route`, etc. |
+| `list` | Bundle multiple values or symbols | `[list]` |
 | `cyclone/scale` | Value mapping | `[scale input_min input_max output_min output_max]` |
 | `clip` | Value clipping | `[clip lower_limit upper_limit]` |
 | `else/smooth~` | Smoothing (signal) | ELSE library |
