@@ -26,27 +26,69 @@ In Pd, you can use text data to output messages at specified timings in sequence
 
 ### Text Data Format
 
-Text data is written in the following format. Each line corresponds to one event, ending with a semicolon (`;`).
+Each line is a pair of a **destination** (where to send) and the **text to send**, ending with a semicolon (`;`). If you put a **number (milliseconds) at the start** of a line, the sequence advances to the next line automatically after that much time has elapsed (`auto` mode).
 
 ```
-data c;
-data d;
-data e;
-data f;
+note c;
+500 note d;
+500 note e;
+500 note f;
+500 note e;
+500 note d;
+500 note c;
+1000 note e;
 ```
+
+In the example above (the opening of "Frog Song"), `note` is the destination and `c`, `d`, `e`... are the values to send. The first line has no number, so `c` is sent immediately; from the second line on, each note is sent after waiting `500` (milliseconds) from the previous one. The sent value is received with `[r note]`.
 
 ::: tip Writing Text Data
-- Write one piece of data per line
-- Each line must end with a semicolon (`;`)
-- Write the value after `data` followed by a space
-- You can include multiple values on one line separated by spaces (e.g., `data c 500;`)
+- Each line is written as `destination value;`, or `delay destination value;`
+- **Destination**: the name to send to. It arrives at `[r destination]` in Pd (e.g., `note` → `[r note]`)
+- **Delay (optional)**: a number at the start of the line. In `auto` mode, it waits this many **milliseconds** from the previous line before sending (omit it to send immediately; the first line omits it)
+- **Value**: what to send to the destination (a note name, file name, etc.)
+- Every line must end with a semicolon (`;`)
+- To enable destinations, add the `-g` flag to `text sequence` (e.g., `[text sequence kaeru -g]`)
+:::
+
+::: details Full "Frog Song" data
+```
+note c;
+500 note d;
+500 note e;
+500 note f;
+500 note e;
+500 note d;
+500 note c;
+1000 note e;
+500 note f;
+500 note g;
+500 note a;
+500 note g;
+500 note f;
+500 note e;
+1000 note c;
+1000 note c;
+1000 note c;
+1000 note c;
+1000 note c;
+250 note c;
+250 note d;
+250 note d;
+250 note e;
+250 note e;
+250 note f;
+250 note f;
+250 note e;
+500 note d;
+500 note c;
+```
 :::
 
 ### Patch Example
 
 ![Text data](/images/pd/29-kaeru-text.png)
 
-Write text data inside the `text define` object, and `text sequence` outputs it line by line.
+Write the text data inside `text define -k kaeru`, and `text sequence kaeru -g` sends it line by line. The `-g` flag makes the leading symbol of each line (`note`) a destination, so the note can be received with `[r note]`.
 
 ---
 
@@ -64,10 +106,10 @@ By connecting the output of `text sequence` to `else/play.file~`, you can automa
 
 ### Steps
 
-1. Write text data (file names, note data, etc.) inside `text define`
-2. Create a `text sequence` and specify the name of the `text define` as its argument
-3. Send `auto` to automatically output each line in order
-4. Send `bang` to output one line at a time manually
+1. Write text data (in the form `destination value;` — file names, note data, etc.) inside `text define`
+2. Create a `text sequence` with the `text define` name and the `-g` flag (e.g., `[text sequence kaeru -g]`); receive each destination with `[r destination]`
+3. Send `auto` to output each line automatically in order, following the leading number (milliseconds)
+4. Send `bang` to output one line at a time manually (the delay numbers are ignored)
 5. Send `line 0` to return to the first line
 
 ::: tip Choosing Between auto and bang
@@ -151,10 +193,11 @@ MIDI integration is an advanced topic. We will only cover the overview in this c
 Use `text define` and `text sequence` to prepare the melody of "Frog Song" (Kaeru no Uta), and create a patch that plays one note each time the micro:bit's A button is pressed.
 
 ::: details Hint
-- Write the note data in `text define` (e.g., `data c;` `data d;` `data e;` `data f;` ...)
-- Use the `bang` message on `text sequence` to output one note at a time
+- Write the note data in `text define` in the form `destination value;` (e.g., `note c;` `500 note d;` `500 note e;` ...)
+- Add the `-g` flag to `text sequence` (e.g., `[text sequence kaeru -g]`); receive the note destination with `[r note]`
+- Use the `bang` message on `text sequence` to output one note at a time (with the A button, the leading delay is ignored and it advances one note per press)
 - Send `bang` when the A button is pressed
-- Connect the output note data to `osc~` or an audio file player
+- Route the received note data with `sel` and connect it to `osc~` or an audio file player
 - Consider using `line 0` to return to the beginning when the song ends
 :::
 
