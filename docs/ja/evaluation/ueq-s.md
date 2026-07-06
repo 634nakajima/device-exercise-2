@@ -35,19 +35,19 @@ UEQ-Sでは、以下の8つの形容詞対について7段階で回答します�
 
 | # | 左 | 右 | 何を測っているか |
 |---|------|------|------|
-| 1 | 邪魔な (obstructive) | 支援的な (supportive) | 作品が体験者の行動を助けてくれるか |
+| 1 | 妨げになる (obstructive) | 助けられる (supportive) | 作品が体験者の行動を助けてくれるか |
 | 2 | 複雑な (complicated) | 簡単な (easy) | 操作や理解の難しさ |
-| 3 | 非効率な (inefficient) | 効率的な (efficient) | 目的を達成するまでの手間 |
-| 4 | 分かりにくい (confusing) | 分かりやすい (clear) | 操作方法や反応のわかりやすさ |
+| 3 | 効率が悪い (inefficient) | 効率が良い (efficient) | 目的を達成するまでの手間 |
+| 4 | ごちゃごちゃしている (confusing) | すっきりしている (clear) | 操作方法や反応のわかりやすさ |
 
 ### 感性的品質（Hedonic Quality）を測る4項目
 
 | # | 左 | 右 | 何を測っているか |
 |---|------|------|------|
-| 5 | 退屈な (boring) | ワクワクする (exciting) | 体験の面白さ・興奮 |
-| 6 | 興味がわかない (not interesting) | 興味深い (interesting) | 好奇心を刺激するか |
-| 7 | ありふれた (conventional) | 独創的な (inventive) | 新しさ・独自性 |
-| 8 | 平凡な (usual) | 先端的な (leading edge) | 先進的・革新的な印象 |
+| 5 | 退屈な (boring) | エキサイティングな (exciting) | 体験の面白さ・興奮 |
+| 6 | 面白くない (not interesting) | 面白い (interesting) | 好奇心を刺激するか |
+| 7 | 従来どおり (conventional) | 独特な (inventive) | 新しさ・独自性 |
+| 8 | 普通 (usual) | 斬新 (leading edge) | 先進的・革新的な印象 |
 
 ::: details 回答のイメージ
 ```
