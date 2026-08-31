@@ -125,6 +125,72 @@ export default defineConfig({
           ]
         }
       }
+    },
+    zh: {
+      label: '简体中文',
+      lang: 'zh-CN',
+      link: '/zh/',
+      themeConfig: {
+        nav: [
+          { text: '首页', link: '/zh/' },
+          { text: '课程一览', link: '/zh/lessons/lesson01' },
+          { text: '评价方法', link: '/zh/evaluation/' },
+          { text: 'Pd 参考手册', link: '/zh/reference/pd-keywords' }
+        ],
+        sidebar: {
+          '/zh/lessons/': [
+            {
+              text: '前半：基础与技术掌握',
+              items: [
+                { text: '第1讲 导论', link: '/zh/lessons/lesson01' },
+                { text: '第2讲 简单的电子乐器', link: '/zh/lessons/lesson02' },
+                { text: '第3讲 Pd 基础', link: '/zh/lessons/lesson03' },
+                { text: '第4讲 数据处理・micro:bit 联动', link: '/zh/lessons/lesson04' },
+                { text: '第5讲 音频文件的处理', link: '/zh/lessons/lesson05' },
+                { text: '第6讲 自动演奏', link: '/zh/lessons/lesson06' },
+                { text: '第7讲 用 Pd+micro:bit 制作电子乐器', link: '/zh/lessons/lesson07' }
+              ]
+            },
+            {
+              text: '后半：作品制作与评价',
+              items: [
+                { text: '第8-9讲 作品制作', link: '/zh/lessons/lesson08-09' },
+                { text: '第10讲 基于思考发话法的评价', link: '/zh/lessons/lesson10' },
+                { text: '第11讲 多声道音频', link: '/zh/lessons/lesson11' },
+                { text: '第12讲 提升完成度', link: '/zh/lessons/lesson12' },
+                { text: '第13讲 作品体验会・问卷', link: '/zh/lessons/lesson13' },
+                { text: '第14讲 问卷分析', link: '/zh/lessons/lesson14' },
+                { text: '第15讲 最终报告会', link: '/zh/lessons/lesson15' }
+              ]
+            }
+          ],
+          '/zh/evaluation/': [
+            {
+              text: '评价方法',
+              items: [
+                { text: '概要', link: '/zh/evaluation/' },
+                { text: 'SD法（印象评价）', link: '/zh/evaluation/sd-method' },
+                { text: 'UEQ-S（UX评价）', link: '/zh/evaluation/ueq-s' }
+              ]
+            }
+          ],
+          '/zh/reference/': [
+            {
+              text: '参考手册',
+              items: [
+                { text: 'Pure Data 关键词一览', link: '/zh/reference/pd-keywords' }
+              ]
+            }
+          ]
+        },
+        outline: { label: '目录' },
+        docFooter: { prev: '上一页', next: '下一页' },
+        darkModeSwitchLabel: '外观',
+        sidebarMenuLabel: '菜单',
+        returnToTopLabel: '返回顶部',
+        langMenuLabel: '切换语言',
+        lastUpdatedText: '最后更新于'
+      }
     }
   },
 
