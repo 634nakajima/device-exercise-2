@@ -191,6 +191,72 @@ export default defineConfig({
         langMenuLabel: '切换语言',
         lastUpdatedText: '最后更新于'
       }
+    },
+    ko: {
+      label: '한국어',
+      lang: 'ko',
+      link: '/ko/',
+      themeConfig: {
+        nav: [
+          { text: '홈', link: '/ko/' },
+          { text: '수업 목록', link: '/ko/lessons/lesson01' },
+          { text: '평가 방법', link: '/ko/evaluation/' },
+          { text: 'Pd 레퍼런스', link: '/ko/reference/pd-keywords' }
+        ],
+        sidebar: {
+          '/ko/lessons/': [
+            {
+              text: '전반: 기초와 기술 습득',
+              items: [
+                { text: '제1강 인트로덕션', link: '/ko/lessons/lesson01' },
+                { text: '제2강 간단한 전자 악기', link: '/ko/lessons/lesson02' },
+                { text: '제3강 Pd 기초', link: '/ko/lessons/lesson03' },
+                { text: '제4강 데이터 처리・micro:bit 연동', link: '/ko/lessons/lesson04' },
+                { text: '제5강 음원 파일의 처리', link: '/ko/lessons/lesson05' },
+                { text: '제6강 자동 연주', link: '/ko/lessons/lesson06' },
+                { text: '제7강 Pd+micro:bit로 전자 악기', link: '/ko/lessons/lesson07' }
+              ]
+            },
+            {
+              text: '후반: 작품 제작과 평가',
+              items: [
+                { text: '제8-9강 작품 제작', link: '/ko/lessons/lesson08-09' },
+                { text: '제10강 사고 발화법에 의한 평가', link: '/ko/lessons/lesson10' },
+                { text: '제11강 멀티채널 오디오', link: '/ko/lessons/lesson11' },
+                { text: '제12강 완성도를 높이자', link: '/ko/lessons/lesson12' },
+                { text: '제13강 작품 체험회・설문', link: '/ko/lessons/lesson13' },
+                { text: '제14강 설문 분석', link: '/ko/lessons/lesson14' },
+                { text: '제15강 최종 보고회', link: '/ko/lessons/lesson15' }
+              ]
+            }
+          ],
+          '/ko/evaluation/': [
+            {
+              text: '평가 방법',
+              items: [
+                { text: '개요', link: '/ko/evaluation/' },
+                { text: 'SD법（인상 평가）', link: '/ko/evaluation/sd-method' },
+                { text: 'UEQ-S（UX 평가）', link: '/ko/evaluation/ueq-s' }
+              ]
+            }
+          ],
+          '/ko/reference/': [
+            {
+              text: '레퍼런스',
+              items: [
+                { text: 'Pure Data 키워드 일람', link: '/ko/reference/pd-keywords' }
+              ]
+            }
+          ]
+        },
+        outline: { label: '목차' },
+        docFooter: { prev: '이전 페이지', next: '다음 페이지' },
+        darkModeSwitchLabel: '테마',
+        sidebarMenuLabel: '메뉴',
+        returnToTopLabel: '맨 위로',
+        langMenuLabel: '언어 변경',
+        lastUpdatedText: '마지막 업데이트'
+      }
     }
   },
 

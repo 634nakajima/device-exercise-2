@@ -3,7 +3,7 @@ layout: home
 hero:
   name: デバイス演習 II
   text: Device Exercise II
-  tagline: インタラクティブサウンドアート / Interactive Sound Art / 交互式声音艺术
+  tagline: インタラクティブサウンドアート / Interactive Sound Art / 交互式声音艺术 / 인터랙티브 사운드 아트
   actions:
     - theme: brand
       text: 日本語
@@ -14,4 +14,7 @@ hero:
     - theme: alt
       text: 简体中文
       link: /zh/
+    - theme: alt
+      text: 한국어
+      link: /ko/
 ---
