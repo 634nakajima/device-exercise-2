@@ -51,13 +51,27 @@ The `else/stretch.shift~` object lets you change the pitch or tempo of an audio 
 
 ### Inlet Description
 
-`else/stretch.shift~` has multiple inlets, each controlling a different parameter.
+`else/stretch.shift~` has four inlets, each controlling a different parameter.
 
 | Inlet | Parameter | Description |
 |-------|-----------|-------------|
-| 1st inlet | Buffer size | Size of the processing buffer |
-| 2nd inlet | Pitch | Pitch change amount (in cents) |
+| 1st inlet | Signal input | Audio signal input (send `bang` to reset to the start of the buffer, or `size <float>` to set the buffer size in ms) |
+| 2nd inlet | Grain size | Size of a grain (in ms) |
 | 3rd inlet | Tempo | Playback speed (in percent) |
+| 4th inlet | Pitch | Pitch change amount (in cents) |
+
+### Arguments
+
+You can also set initial values with arguments.
+
+| Argument | Parameter | Default |
+|----------|-----------|---------|
+| 1st argument | Buffer size (ms) | 5000 |
+| 2nd argument | Playback speed (%) | 100 |
+| 3rd argument | Pitch (cents) | 0 |
+| 4th argument | Grain size (ms) | 25 |
+
+Example: `else/stretch.shift~ 5000 20` — sets the buffer size to 5000 ms and the playback speed to 20%.
 
 ### Pitch Settings
 

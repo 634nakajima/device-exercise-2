@@ -133,7 +133,7 @@ Signal-related objects will not work unless DSP is turned on. Enable it via the 
 | Object | Description | Usage |
 |--------|-------------|-------|
 | `else/play.file~` | Audio file playback | `[else/play.file~ filename loop(0/1) autoplay(0/1)]`. Control with `start`/`stop`/`loop 1` messages |
-| `else/stretch.shift~` | Pitch shift / time stretch | `[else/stretch.shift~ buffer_size init_pitch init_tempo]`. Pitch: 0=original, 1200=1 octave (3rd inlet); Tempo: 100=original (%) (4th inlet) |
+| `else/stretch.shift~` | Pitch shift / time stretch | `[else/stretch.shift~ buffer_size init_tempo init_pitch grain_size]`. Tempo: 100=original (%) (3rd inlet); Pitch: 0=original, 1200=1 octave (4th inlet) |
 | `else/xselect~` | Crossfade selection | `[else/xselect~ num_channels fade_time(ms)]`. Input a channel number (0, 1, 2…) to the left inlet to switch |
 | `else/xfade~` | Crossfade | ELSE library |
 | `else/rec.file~` | Record to file | `[else/rec.file~ filename]`. The file is saved in the same folder as the patch |
